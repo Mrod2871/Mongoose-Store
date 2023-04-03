@@ -18,3 +18,9 @@ img {
     height: 100px;
     padding: 30px;
 }
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+}

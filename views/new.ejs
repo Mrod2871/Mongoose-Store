@@ -9,13 +9,14 @@
   </head>
   <body>
     <h1>New Product Page</h1>
-    <form action="/" method="POST">
+    <form action="/products" method="POST">
       Name: <input type="text" name="name" /><br />
       About: <input type="text" name="description" /><br />
       Price: <input type="number" name="price"/><br />
       Quantity: <input type="number" name="qty"/><br />
-      Image: <input type="text" name="img" value='img'/>
+      Image: <input type="text" name="img"/>
       <input type="submit" value="Add Product" />
+      <a href="/products">Go Back</a>
     </form>
   </body>
 </html>

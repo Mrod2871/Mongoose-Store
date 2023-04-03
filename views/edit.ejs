@@ -11,7 +11,7 @@
     <h1>Edit Product</h1>
     <h2><%=product.name%></h2>
     <img src='<%=product.img%>'/>
-    <form action="/<%=product._id%>?_method=PUT" method="POST">
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=product.name%>">
 
         About: <input type="text" name="description" value="<%=product.description%>">
@@ -25,6 +25,7 @@
         <input type="hidden" name="img" value="<%=product.img %>"/>
         <br/>
         <input type="submit" name="" value="Submit Changes" />
+        <a href="/products/">Go back</a>
     </form>
   </body>
 </html>
