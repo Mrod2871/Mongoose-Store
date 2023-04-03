@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Mongoose Store</title>
+  </head>
+  <body>
+    <h1>Edit Product</h1>
+    <h2><%=product.name%></h2>
+    <img src='<%=product.img%>'/>
+    <form action="/<%=i%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=products.name%>">
+
+        About: <input type="text" name="description" value="<%=product.description%>">
+
+        Price: <input type="number" name="price" 
+        value="<%= product.price%>"/>
+        
+        Quantity: <input type="number" name="qty"
+        value="<%= product.qty %>"/>
+        
+        <input type="hidden" name="img" value="<%=product.img %>"/>
+        <br/>
+        <input type="submit" name="" value="Submit Changes" />
+    </form>
+  </body>
+</html>

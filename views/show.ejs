@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Mongoose Store</title>
+</head>
+<body>
+    <ul id="productInfo">
+        <li>
+            <h1><%= product.name %></h1>
+            <img src='<%=product.img%>'/>
+            <p>About<br /> <%= product.description %></p>
+            <p>Price: $ <%= product.price %></p><br />
+
+            <% if (product.stock > 0) { %>
+            <form method="POST" action="/:id/buy">
+                <button type="submit">Buy</button>
+            </form>
+                
+            <% } else { %>
+            <p>Out of Stock</p>
+            <% } %>
+            
+            <p>Quantity Left: <%= product.stock %></p>
+            <a href="/edit">Edit this Product</a>
+            <a href="/">Go Back</a>
+        </li>
+        <form id="form"action="/<%=i %>/?_method=DELETE" method="POST" >
+            <input type="submit" value="DELETE">
+        </form>
+    </ul>
+</body>
+</html>
