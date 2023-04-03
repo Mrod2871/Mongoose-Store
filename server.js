@@ -19,14 +19,15 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 // Middleware
 // Body parser middleware: give us access to req.body
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
 app.use('/public', express.static('public'))
-app.use(methodOverride('_method'))
+
 
 
 //Index /Get
 app.get('/', async (req, res) => {
-    const products = await Product.find()
+    const products = await Product.find({})
 	res.render('index.ejs', {
         products: products,
     });
@@ -39,9 +40,7 @@ app.get('/new', (req, res) => {
 
 // Destroy /Delete
 app.delete('/:id', async (req, res) => {
-    const products = await Product.find({}).exec()
-    products.splice(req.params.id, 1)
-    await Product.findByIdAndDelete(req.params.id)
+    await Product.findByIdAndRemove(req.params.id,)
     res.redirect('/')
 })
 
@@ -65,18 +64,17 @@ app.get('/:id/edit', async(req,res) => {
     const editedProduct = await Product.findById(req.params.id).exec()
     res.render('edit.ejs', 
     {
-        product: editedProduct[req.params.id],
-        i: req.params.id,
+        product: editedProduct,
     })
 })
 
 // Show /Get
 app.get('/:id', async(req, res) => {
-	const selectedProduct = await Product.findById(req.params._id).exec()
+	const selectedProduct = await Product.findById(req.params.id).exec()
     res.render('show.ejs', 
     {
         product: selectedProduct,
-        i: req.params.id
+        
     })
 })
 

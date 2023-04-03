@@ -8,16 +8,19 @@
     <title>Mongoose Store</title>
 </head>
 <body>
-    <img id="img" src=></img>
+    <img id="img" src='https://assets.simon.com/tenantlogos/31830.png'></img>
     <a href="/new">Add a Product</a>
     <ul>
         <% for(let i = 0; i < products.length; i++) { %>
         <li id="li">
-            <a href="/<%=i%>"<%=products[i].name %>><img src='<%=products[i].img%>'/></a>
-            <form id="form" action="/<%= products._id %>?_method=DELETE" method="POST" >
-            <input type="submit" value="DELETE" >
+            <!-- show -->
+            <a href="/<%=products[i]._id%>"<%=products[i].name %>><img src='<%=products[i].img%>'/></a>
+            <!-- Delete -->
+            <form id="form" action="/<%= products[i]._id %>?_method=DELETE" method="POST" >
+                <input type="submit" value="DELETE" >
             </form>
-            <a href="/<%=i %>/edit">Edit</a>
+
+            <a href="/<%=products[i]._id %>/edit">Edit</a>
         </li>
         <% } %>
     </ul>

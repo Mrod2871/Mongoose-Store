@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-const Product = require('/models/product')
-
-
+const Product = require('./products.js')
 
 const Products = [
     {
@@ -24,7 +22,10 @@ const Products = [
       qty: 1
     }
   ]
-
-for ( let i = 0; i < Products.length; i++) {
-    Products[i].save
+const seedDb = async () => {
+  await Product.deleteMany({})
+  await
+Product.insertMany(Products)
 }
+
+seedDb()
